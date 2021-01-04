@@ -1,3 +1,5 @@
+#Project in Getting and Cleaning data class
+
 This repository is made for the project in the Getting and Cleaning data class.
 
 The data for the project is UCI HAR Dataset.
