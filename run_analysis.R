@@ -94,5 +94,5 @@ data_modified <- data_descriptive %>%
         group_by(label, id) %>%
         summarise(across(.cols=matches("mean\\(\\)|std\\(\\)"), mean, .names="mean-{.col}"))
 
-data.table::fwrite(data_modified, file = "./data/tidyData_mean.txt", quote = FALSE)
+write.table(data_modified, file = "./data/tidyData_mean.txt", quote = FALSE, row.name=FALSE)
 
