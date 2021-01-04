@@ -85,6 +85,7 @@ data_descriptive <- join(activitylabel,data)
 ## 4.Appropriately labels the data set with descriptive variable names. 
 #The Column names are already assigned.
 
+data.table::fwrite(data_descriptive, file = "./data/tidyData.txt", quote = FALSE)
 
 
 ## 5.From the data set in step 4, creates a second, independent tidy data set 
@@ -93,5 +94,5 @@ data_modified <- data_descriptive %>%
         group_by(label, id) %>%
         summarise(across(.cols=matches("mean\\(\\)|std\\(\\)"), mean))
 
-data.table::fwrite(data_modified, file = "./data/tidyData.txt", quote = FALSE)
+data.table::fwrite(data_modified, file = "./data/tidyData_mean.txt", quote = FALSE)
 
