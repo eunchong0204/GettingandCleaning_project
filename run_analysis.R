@@ -92,7 +92,7 @@ data.table::fwrite(data_descriptive, file = "./data/tidyData.txt", quote = FALSE
 ## with the average of each variable for each activity and each subject.
 data_modified <- data_descriptive %>%
         group_by(label, id) %>%
-        summarise(across(.cols=matches("mean\\(\\)|std\\(\\)"), mean))
+        summarise(across(.cols=matches("mean\\(\\)|std\\(\\)"), mean, .names="mean-{.col}"))
 
 data.table::fwrite(data_modified, file = "./data/tidyData_mean.txt", quote = FALSE)
 
